@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Message</title>
+</head>
+<body>
+    <h1>Assign Message</h1>
+    <label for="encodedInput">Enter Encoded Message:</label>
+    <input type="text" id="encodedInput">
+    <br>
+    <label for="keyInput">Enter Key:</label>
+    <input type="text" id="keyInput">
+    <br>
+    <button onclick="decodeAndDisplayMessage()">Output</button>
+    <p id="output"></p>
+
+    <script>
+        function decodeMessage(encoded, key) {
+            let decoded = '';
+            const assign = {};
+
+            for (let i = 0; i < encoded.length; i++) {
+                assign[encoded[i]] = key[i];
+                decoded += assign[encoded[i]];
+            }
+
+            return decoded;
+        }
+
+        function decodeAndDisplayMessage() {
+            const encoded = document.getElementById('encodedInput').value;
+            const key = document.getElementById('keyInput').value;
+            const output = decodeMessage(encoded, key);
+            document.getElementById('output').textContent = 'Decoded message: ' + output;
+        }
+    </script>
+</body>
+</html>
